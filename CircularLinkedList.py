@@ -68,7 +68,7 @@ class CircularLinkedList(object):
                     new_node.set_next(self.head)
 
 def call_CLL():
-    ip = int(input('Option : \n 1. Add beginning \n 2.Add end 3. Insert after \n 4. Print \n 5. Exit \n'))
+    ip = int(input('Option : \n 1. Add beginning \n 2.Add end \n 3. Insert after \n 4. Print \n 5. Exit \n'))
     cll = CircularLinkedList()
     while ip != 5:
         if ip==1:
