@@ -55,6 +55,8 @@ class BST(object):
             self._print_BST_preorder(self.root)
             print('Postorder: ')
             self._print_BST_postorder(self.root)
+            print('BFS')
+            self.print_BFS()
 
     def _print_BST_inorder(self, cur_node):
         if cur_node is None:
@@ -112,6 +114,24 @@ class BST(object):
             else:
                 return False
 
+    def print_BFS(self):
+        if self.root is None:
+            print('Tree is empty')
+        else:
+            height = self.height()
+            for h in range(1, height+1):
+                self._print_BFS(self.root, h)
+
+    def _print_BFS(self, cur_node, level):
+        if cur_node is None:
+            return
+        elif level == 1:
+            print(cur_node.get_data())
+        else:
+            self._print_BFS(cur_node.get_left_child(), level - 1)
+            self._print_BFS(cur_node.get_right_child(), level - 1)
+
+
 def call():
     from random import randint
     BST1 = BST()
@@ -122,8 +142,8 @@ def call():
     BST1.insert(4)
     BST1.insert(8)
 
-    for i in range(10):
-        BST1.insert(randint(0,100))
+    #for i in range(10):
+     #   BST1.insert(randint(0,100))
 
     BST1.print_BST()
     print('Height: ',BST1.height())
